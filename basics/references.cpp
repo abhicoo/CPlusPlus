@@ -8,6 +8,7 @@ using std::cout;
 
 int main() {
   int i = 1;
+  int k = 9;
   int &j = i;
 
   cout << "The value of integer j is: " << j << "\n";
@@ -16,7 +17,8 @@ int main() {
   cout << "The value of i is changed to: " << i << "\n";
   cout << "The value of j is now: " << j << "\n";
 
-  j = 7;
+  j = k;
+  // j = 7;
   cout << "The value of j is changed to: " << j << "\n";
   cout << "The value of i is now: " << i << "\n";
 }
