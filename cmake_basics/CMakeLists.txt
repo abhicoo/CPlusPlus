@@ -18,7 +18,6 @@ configure_file(tutorial_config.h.in tutorial_config.h)
 if(USE_MYMATH)
     add_subdirectory(MathFunctions)
     list(APPEND EXTRA_LIBS MathFunctions)
-    list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/MathFunctions")
 endif()
 
 
@@ -31,7 +30,10 @@ target_link_libraries(Tutorial PUBLIC ${EXTRA_LIBS})
 # so that we will find tutorial_config.h
 target_include_directories(Tutorial PUBLIC
                            "${PROJECT_BINARY_DIR}"
-                           ${EXTRA_INCLUDES}
                            )
+install(TARGETS Tutorial DESTINATION bin)
+install(FILES "${PROJECT_BINARY_DIR}/tutorial_config.h"
+  DESTINATION include
+  )
 
 
